@@ -27,7 +27,7 @@ export default function Projects() {
         {projects.map((project) => (
           <article
             key={project.name}
-            className={`flex flex-col rounded-xl border border-slate-200 bg-white p-6 transition-colors hover:border-brand-400 dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-brand-500 ${
+            className={`flex flex-col rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-6 transition-colors hover:border-brand-400 dark:border-slate-800 dark:bg-slate-900/40 dark:hover:border-brand-500 ${
               project.featured ? "md:col-span-2" : ""
             } ${
               project === loneLastProject

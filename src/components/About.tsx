@@ -26,7 +26,7 @@ export default function About() {
           </p>
 
           <div className="grid gap-4 pt-4 sm:grid-cols-2">
-            <div className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900/50">
+            <div className="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 dark:border-slate-800 dark:bg-slate-900/40">
               <h3 className="text-sm font-semibold text-slate-900 dark:text-white">Education</h3>
               <a
                 href={education.url}
@@ -40,7 +40,7 @@ export default function About() {
                 {education.degree} · {education.period}
               </p>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900/50">
+            <div className="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 dark:border-slate-800 dark:bg-slate-900/40">
               <h3 className="text-sm font-semibold text-slate-900 dark:text-white">Languages</h3>
               <ul className="mt-2 space-y-1 text-sm text-slate-600 dark:text-slate-400">
                 {languages.map((lang) => (
@@ -55,7 +55,7 @@ export default function About() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="rounded-xl border border-slate-200 bg-white p-5 text-center dark:border-slate-800 dark:bg-slate-900/50"
+              className="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-5 text-center dark:border-slate-800 dark:bg-slate-900/40"
             >
               <p className="text-3xl font-bold text-brand-600 dark:text-brand-400">{stat.value}</p>
               <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{stat.label}</p>

@@ -13,7 +13,7 @@ const items = [
 export default function Contact() {
   return (
     <Section id="contact" eyebrow="Contact" title="Let's build something">
-      <div className="rounded-2xl border border-slate-200 bg-white p-8 sm:p-10 dark:border-slate-800 dark:bg-slate-900/50">
+      <div className="rounded-2xl border border-slate-200 bg-white/70 backdrop-blur-sm p-8 sm:p-10 dark:border-slate-800 dark:bg-slate-900/40">
         <p className="max-w-2xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
           I'm open to senior full-stack and frontend roles, contract work, and interesting
           collaborations. The fastest way to reach me is by email — I usually reply within a day.

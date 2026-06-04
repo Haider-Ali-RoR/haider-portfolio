@@ -8,7 +8,7 @@ export default function Skills() {
         {skillGroups.map((group) => (
           <div
             key={group.label}
-            className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/50"
+            className="rounded-xl border border-slate-200 bg-white/70 backdrop-blur-sm p-6 dark:border-slate-800 dark:bg-slate-900/40"
           >
             <h3 className="mb-4 text-sm font-semibold tracking-wide text-slate-900 uppercase dark:text-white">
               {group.label}
