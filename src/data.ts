@@ -125,6 +125,8 @@ export type Project = {
   description: string;
   tech: string[];
   url?: string;
+  // Featured projects span the full grid width (their own row).
+  featured?: boolean;
   // Some projects are an umbrella over several deployed apps. When present,
   // the card becomes expandable to reveal each sub-app with its own link.
   apps?: ProjectApp[];
@@ -138,27 +140,10 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: "TRACE",
-    tagline: "Browser-Based 3D AR/XR Authoring",
-    role: "Senior Frontend Engineer",
-    description:
-      "The React-based studio interface for a browser-native 3D AR/XR content creation platform. Integrated the Babylon.js 3D viewer, implemented complex Zustand state management, and built composable behavior editing systems for animations, materials, and interactions.",
-    tech: ["React 18", "TypeScript", "Vite", "Babylon.js", "Zustand", "Stripe", "HeroUI", "TailwindCSS"],
-    url: "https://studio.trace3d.app/",
-  },
-  {
-    name: "VetPA",
-    tagline: "AI-Powered Veterinary SaaS",
-    role: "Full-Stack Developer",
-    description:
-      "An AI-powered veterinary clinic management platform with clinical journaling, patient records, subscriptions, and automated workflows. Integrated GPT-4.1 for journal auto-fill, audio transcription via Whisper, and patient profile extraction with bilingual support (English/Danish). Built Stripe billing, role-based multi-tenant architecture, JWT auth, and an auto-saving clinical dashboard.",
-    tech: ["Node.js", "Next.js 15", "React 19", "TypeScript", "PostgreSQL", "Prisma", "OpenAI GPT-4.1", "Stripe"],
-    url: "https://vetpa.ai/",
-  },
-  {
     name: "GroovePacker",
     tagline: "Multi-Tenant Fulfillment SaaS",
     role: "Senior Backend Developer",
+    featured: true,
     description:
       "An enterprise multi-tenant fulfillment SaaS spanning three deployed apps. I built core APIs aggregating orders from 9+ sales channels, the multi-tenant architecture (Apartment), a background job pipeline for order imports and inventory sync, a rules-microservice bridge to a Go service, and hardened OAuth (Doorkeeper) with Stripe tenant billing.",
     tech: ["Ruby on Rails", "MySQL", "Redis", "Go", "Shopify GraphQL", "Amazon MWS", "Stripe", "React 18"],
@@ -183,6 +168,24 @@ export const projects: Project[] = [
         url: "https://apps.shopify.com/groovepacker-lite",
       },
     ],
+  },
+  {
+    name: "TRACE",
+    tagline: "Browser-Based 3D AR/XR Authoring",
+    role: "Senior Frontend Engineer",
+    description:
+      "The React-based studio interface for a browser-native 3D AR/XR content creation platform. Integrated the Babylon.js 3D viewer, implemented complex Zustand state management, and built composable behavior editing systems for animations, materials, and interactions.",
+    tech: ["React 18", "TypeScript", "Vite", "Babylon.js", "Zustand", "Stripe", "HeroUI", "TailwindCSS"],
+    url: "https://studio.trace3d.app/",
+  },
+  {
+    name: "VetPA",
+    tagline: "AI-Powered Veterinary SaaS",
+    role: "Full-Stack Developer",
+    description:
+      "An AI-powered veterinary clinic management platform with clinical journaling, patient records, subscriptions, and automated workflows. Integrated GPT-4.1 for journal auto-fill, audio transcription via Whisper, and patient profile extraction with bilingual support (English/Danish). Built Stripe billing, role-based multi-tenant architecture, JWT auth, and an auto-saving clinical dashboard.",
+    tech: ["Node.js", "Next.js 15", "React 19", "TypeScript", "PostgreSQL", "Prisma", "OpenAI GPT-4.1", "Stripe"],
+    url: "https://vetpa.ai/",
   },
   {
     name: "Cuentto",

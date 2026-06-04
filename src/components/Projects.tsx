@@ -14,13 +14,26 @@ export default function Projects() {
   const toggleExpanded = (name: string) =>
     setExpanded((prev) => ({ ...prev, [name]: !prev[name] }));
 
+  // In the 2-column grid, a featured (full-width) project occupies its own row,
+  // so the remaining cards flow in pairs. If there's an odd number of them, the
+  // final card sits alone in the last row — center it instead of left-aligning.
+  const standardCount = projects.filter((p) => !p.featured).length;
+  const loneLastProject =
+    standardCount % 2 === 1 ? projects[projects.length - 1] : null;
+
   return (
     <Section id="projects" eyebrow="Projects" title="Selected work">
       <div className="grid gap-6 md:grid-cols-2">
         {projects.map((project) => (
           <article
             key={project.name}
-            className="flex flex-col rounded-xl border border-slate-200 bg-white p-6 transition-colors hover:border-brand-400 dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-brand-500"
+            className={`flex flex-col rounded-xl border border-slate-200 bg-white p-6 transition-colors hover:border-brand-400 dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-brand-500 ${
+              project.featured ? "md:col-span-2" : ""
+            } ${
+              project === loneLastProject
+                ? "md:col-span-2 md:mx-auto md:w-1/2"
+                : ""
+            }`}
           >
             <div className="flex items-start justify-between gap-3">
               <div>
@@ -99,7 +112,11 @@ export default function Projects() {
                 </button>
 
                 {expanded[project.name] && (
-                  <ul className="mt-2 space-y-2">
+                  <ul
+                    className={`mt-2 gap-2 ${
+                      project.featured ? "grid sm:grid-cols-2" : "space-y-2"
+                    }`}
+                  >
                     {project.apps.map((app) => (
                       <li key={app.name}>
                         <a
