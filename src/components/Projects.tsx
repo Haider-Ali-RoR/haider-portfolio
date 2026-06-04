@@ -6,6 +6,13 @@ import { ExternalLinkIcon } from "./icons";
 
 export default function Projects() {
   const [archivedProject, setArchivedProject] = useState<Project | null>(null);
+  // Projects with a sub-app suite start expanded; users can collapse them.
+  const [expanded, setExpanded] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(projects.filter((p) => p.apps).map((p) => [p.name, true]))
+  );
+
+  const toggleExpanded = (name: string) =>
+    setExpanded((prev) => ({ ...prev, [name]: !prev[name] }));
 
   return (
     <Section id="projects" eyebrow="Projects" title="Selected work">
@@ -60,11 +67,67 @@ export default function Projects() {
               {project.role}
             </p>
 
-            <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+            <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
               {project.description}
             </p>
 
-            <ul className="mt-4 flex flex-wrap gap-2">
+            {project.apps && (
+              <div className="mt-4">
+                <button
+                  type="button"
+                  onClick={() => toggleExpanded(project.name)}
+                  aria-expanded={!!expanded[project.name]}
+                  className="flex w-full items-center justify-between rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-brand-400 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-200 dark:hover:border-brand-500"
+                >
+                  <span>
+                    {expanded[project.name] ? "Hide" : "View"} {project.apps.length} apps in this
+                    suite
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={`transition-transform ${expanded[project.name] ? "rotate-180" : ""}`}
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+
+                {expanded[project.name] && (
+                  <ul className="mt-2 space-y-2">
+                    {project.apps.map((app) => (
+                      <li key={app.name}>
+                        <a
+                          href={app.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="group flex items-start gap-3 rounded-lg border border-slate-200 p-3 transition-colors hover:border-brand-400 hover:bg-slate-50 dark:border-slate-800 dark:hover:border-brand-500 dark:hover:bg-slate-800/40"
+                        >
+                          <span className="mt-0.5 shrink-0 text-slate-400 group-hover:text-brand-600 dark:group-hover:text-brand-400">
+                            <ExternalLinkIcon width={16} height={16} />
+                          </span>
+                          <span>
+                            <span className="block text-sm font-semibold text-slate-800 dark:text-slate-100">
+                              {app.name}
+                            </span>
+                            <span className="mt-0.5 block text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                              {app.description}
+                            </span>
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )}
+
+            <ul className="mt-auto flex flex-wrap gap-2 pt-4">
               {project.tech.map((tech) => (
                 <li
                   key={tech}

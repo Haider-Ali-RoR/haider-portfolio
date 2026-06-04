@@ -112,6 +112,12 @@ export const experiences: Experience[] = [
   },
 ];
 
+export type ProjectApp = {
+  name: string;
+  description: string;
+  url: string;
+};
+
 export type Project = {
   name: string;
   tagline: string;
@@ -119,6 +125,9 @@ export type Project = {
   description: string;
   tech: string[];
   url?: string;
+  // Some projects are an umbrella over several deployed apps. When present,
+  // the card becomes expandable to reveal each sub-app with its own link.
+  apps?: ProjectApp[];
   // When set, the project's live site is no longer available. Clicking the
   // card link opens an explanatory modal with the archive link instead.
   archived?: {
@@ -151,8 +160,29 @@ export const projects: Project[] = [
     tagline: "Multi-Tenant Fulfillment SaaS",
     role: "Senior Backend Developer",
     description:
-      "Core APIs for an enterprise multi-tenant SaaS aggregating orders from 9+ sales channels. Developed the multi-tenant architecture (Apartment), a background job pipeline for order imports and inventory sync, and a rules-microservice bridge to a Go service. Hardened OAuth flows with Doorkeeper and Stripe tenant billing. Also shipped GP-Lite, a Shopify embedded fulfillment app live on the App Store.",
+      "An enterprise multi-tenant fulfillment SaaS spanning three deployed apps. I built core APIs aggregating orders from 9+ sales channels, the multi-tenant architecture (Apartment), a background job pipeline for order imports and inventory sync, a rules-microservice bridge to a Go service, and hardened OAuth (Doorkeeper) with Stripe tenant billing.",
     tech: ["Ruby on Rails", "MySQL", "Redis", "Go", "Shopify GraphQL", "Amazon MWS", "Stripe", "React 18"],
+    url: "https://groovepacker.com/",
+    apps: [
+      {
+        name: "GroovePacker Legacy",
+        description:
+          "The original Rails backend platform powering order aggregation, inventory sync, and multi-tenant billing.",
+        url: "https://asad.groovepacker.com/",
+      },
+      {
+        name: "GroovePacker-X",
+        description:
+          "A React frontend for barcode scanning and shipping-label workflows, running on the Legacy backend.",
+        url: "https://app.groovepacker.com/",
+      },
+      {
+        name: "GroovePacker-Lite (Pick Bot — Barcode Buddy)",
+        description:
+          "A standalone Shopify embedded app (separate Rails + React) for barcode scanning, live on the Shopify App Store.",
+        url: "https://apps.shopify.com/groovepacker-lite",
+      },
+    ],
   },
   {
     name: "Cuentto",
