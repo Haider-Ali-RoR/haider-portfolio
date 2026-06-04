@@ -8,6 +8,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Divider from "./components/Divider";
+import DotField from "./components/DotField";
 
 type Theme = "light" | "dark";
 
@@ -30,8 +31,10 @@ export default function App() {
 
   return (
     <>
-      {/* Faint fixed page backdrop — gives the frosted, semi-transparent
-          section cards something subtle to sit over. */}
+      {/* Fixed page backdrop, two faint layers behind everything:
+          (1) a field of randomly scattered, theme-aware dots, and
+          (2) a soft brand-blue glow for a little warmth. */}
+      <DotField />
       <div
         aria-hidden
         className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(40rem_40rem_at_80%_-10%,rgba(47,132,251,0.10),transparent),radial-gradient(35rem_35rem_at_-10%_30%,rgba(47,132,251,0.06),transparent)] dark:bg-[radial-gradient(40rem_40rem_at_80%_-10%,rgba(47,132,251,0.14),transparent),radial-gradient(35rem_35rem_at_-10%_30%,rgba(47,132,251,0.08),transparent)]"
