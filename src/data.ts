@@ -119,6 +119,12 @@ export type Project = {
   description: string;
   tech: string[];
   url?: string;
+  // When set, the project's live site is no longer available. Clicking the
+  // card link opens an explanatory modal with the archive link instead.
+  archived?: {
+    reason: string;
+    archiveUrl: string;
+  };
 };
 
 export const projects: Project[] = [
@@ -173,7 +179,11 @@ export const projects: Project[] = [
     description:
       "A low-cost Shopify alternative with multi-tenant subdomain-based storefronts and full e-commerce flows — products, variants, inventory, orders, and checkout. Integrated Stripe and the AvoHQ admin panel.",
     tech: ["Ruby on Rails", "React", "AvoHQ", "Stripe", "Devise", "TailwindCSS"],
-    url: "https://becomy.com/",
+    archived: {
+      reason:
+        "Becomy's live site is no longer available — the product has been archived and its domain is no longer maintained. You can still explore a preserved snapshot of the original site through the Internet Archive's Wayback Machine.",
+      archiveUrl: "https://web.archive.org/web/20250715023018/https://becomy.com/",
+    },
   },
 ];
 
