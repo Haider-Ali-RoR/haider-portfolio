@@ -13,7 +13,7 @@ export const profile = {
   phone: "+92 322 6676878",
   yearsOfExperience: "4+",
   photo: "/profile.jpg",
-  resumeUrl: "/Haider_Ali_786_Resume.pdf",
+  resumeUrl: "/Haider_Ali_CV.pdf",
   summary:
     "Senior full-stack engineer with 4+ years of experience building production SaaS platforms. Deep Node.js / MERN focus (Express, NestJS, Next.js, React, MongoDB, Supabase, PostgreSQL) with a strong Ruby on Rails background. Track record across multi-tenant SaaS, AI-integrated apps (OpenAI GPT-4.1, Whisper), real-time systems (Socket.io, BullMQ), and e-commerce integrations (Shopify, Stripe, Amazon).",
   socials: {
