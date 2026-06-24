@@ -11,11 +11,11 @@ export const profile = {
   mapUrl: "https://maps.app.goo.gl/m4BfNWqwFSTFPADa7",
   email: "haideralifsd786@gmail.com",
   phone: "+92 322 6676878",
-  yearsOfExperience: "7+",
+  yearsOfExperience: "4+",
   photo: "/profile.jpg",
   resumeUrl: "/Haider_Ali_786_Resume.pdf",
   summary:
-    "Senior full-stack engineer with over 7 years of experience building production SaaS platforms. Deep Node.js / MERN focus (Express, NestJS, Next.js, React, MongoDB, Supabase, PostgreSQL) with a strong Ruby on Rails background. Track record across multi-tenant SaaS, AI-integrated apps (OpenAI GPT-4.1, Whisper), real-time systems (Socket.io, BullMQ), and e-commerce integrations (Shopify, Stripe, Amazon).",
+    "Senior full-stack engineer with 4+ years of experience building production SaaS platforms. Deep Node.js / MERN focus (Express, NestJS, Next.js, React, MongoDB, Supabase, PostgreSQL) with a strong Ruby on Rails background. Track record across multi-tenant SaaS, AI-integrated apps (OpenAI GPT-4.1, Whisper), real-time systems (Socket.io, BullMQ), and e-commerce integrations (Shopify, Stripe, Amazon).",
   socials: {
     github: "https://github.com/Haider-Ali-RoR",
     linkedin: "https://www.linkedin.com/in/haider-ali-a8180a141",
@@ -77,6 +77,7 @@ export type Experience = {
   company: string;
   role: string;
   period: string;
+  status: "On-Site" | "Remote";
   location: string;
   url?: string;
 };
@@ -86,28 +87,40 @@ export const experiences: Experience[] = [
     company: "DevHouse",
     role: "Senior Full Stack Engineer (Node.js / MERN & Ruby on Rails)",
     period: "Apr 2021 — Present",
-    location: "Faisalabad",
+    status: "On-Site",
+    location: "Faisalabad, PK",
     url: "https://devhouse.co/",
+  },
+  {
+    company: "EAT — The Hunger Network",
+    role: "Senior Full Stack Engineer (MERN / Node.js)",
+    period: "Jan 2026 — Jun 2026",
+    status: "Remote",
+    location: "Irvine, US",
+    url: "https://www.eat.ong/",
   },
   {
     company: "TRACE 3D",
     role: "Senior Frontend Engineer",
     period: "Apr 2025 — Apr 2026",
-    location: "Remote",
+    status: "Remote",
+    location: "Los Angeles, US",
     url: "https://studio.trace3d.app/",
   },
   {
     company: "Groove Packer",
     role: "Senior Ruby on Rails Developer",
     period: "Aug 2024 — Present",
-    location: "Remote",
+    status: "Remote",
+    location: "Mount Pleasant, US",
     url: "https://groovepacker.com/",
   },
   {
     company: "Equipe Technique (ETQ)",
     role: "Senior Ruby on Rails Developer",
     period: "Aug 2022 — Aug 2024",
-    location: "Remote",
+    status: "Remote",
+    location: "Paris, FR",
     url: "https://www.linkedin.com/company/equipe-technique",
   },
 ];
@@ -170,6 +183,15 @@ export const projects: Project[] = [
     ],
   },
   {
+    name: "EAT — The Hunger Network",
+    tagline: "Hunger-Relief Public Network",
+    role: "Senior Full-Stack Engineer",
+    description:
+      "A public network for hunger relief where people find help and organizations claim, publish, and route attention and funding across the ecosystem. Built and maintained the Next.js application, implemented APIs for the website and mobile apps, and integrated Crowded Banking for payouts.",
+    tech: ["Next.js", "React Native", "Clerk", "Privy", "Crowded Banking", "TypeScript"],
+    url: "https://www.eat.ong/",
+  },
+  {
     name: "TRACE",
     tagline: "Browser-Based 3D AR/XR Authoring",
     role: "Senior Frontend Engineer",
@@ -217,6 +239,15 @@ export const projects: Project[] = [
         "Becomy's live site is no longer available — the product has been archived and its domain is no longer maintained. You can still explore a preserved snapshot of the original site through the Internet Archive's Wayback Machine.",
       archiveUrl: "https://web.archive.org/web/20250715023018/https://becomy.com/",
     },
+  },
+  {
+    name: "Azka Basket",
+    tagline: "Organic Food Delivery Platform",
+    role: "Ruby on Rails Developer",
+    description:
+      "An organic food platform partnering with regional farmers. Built the CMS panel and the weekly delivery automation cycle, implementing the automated produce-delivery scheduler that resets at the start of each week.",
+    tech: ["Ruby on Rails", "Devise", "Shopify", "HTML", "CSS", "Bootstrap"],
+    url: "https://www.azkabasket.com/",
   },
 ];
 

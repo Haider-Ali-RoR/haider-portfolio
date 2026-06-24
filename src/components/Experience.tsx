@@ -21,7 +21,12 @@ export default function Experience() {
               {exp.role}
             </p>
             <p className="mt-1 flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
-              {exp.location}
+              <span>
+                <span className="font-semibold text-slate-700 dark:text-slate-300">
+                  {exp.status}
+                </span>
+                {exp.location && <> · {exp.location}</>}
+              </span>
               {exp.url && (
                 <a
                   href={exp.url}
