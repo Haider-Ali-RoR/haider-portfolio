@@ -13,12 +13,12 @@ export const profile = {
   phone: "+92 322 6676878",
   yearsOfExperience: "4+",
   photo: "/profile.jpg",
-  resumeUrl: "/Haider_Ali_CV.pdf",
+  resumeUrl: "/haider-ali-cv.pdf",
   summary:
     "Senior full-stack engineer with 4+ years of experience building production SaaS platforms. Deep Node.js / MERN focus (Express, NestJS, Next.js, React, MongoDB, Supabase, PostgreSQL) with a strong Ruby on Rails background. Track record across multi-tenant SaaS, AI-integrated apps (OpenAI GPT-4.1, Whisper), real-time systems (Socket.io, BullMQ), and e-commerce integrations (Shopify, Stripe, Amazon).",
   socials: {
     github: "https://github.com/Haider-Ali-RoR",
-    linkedin: "https://www.linkedin.com/in/haider-ali-a8180a141",
+    linkedin: "https://www.linkedin.com/in/haiderali878",
   },
 } as const;
 
@@ -86,7 +86,7 @@ export const experiences: Experience[] = [
   {
     company: "DevHouse",
     role: "Senior Full Stack Engineer (Node.js / MERN & Ruby on Rails)",
-    period: "Apr 2021 — Present",
+    period: "Apr 2021 — Jun 2026",
     status: "On-Site",
     location: "Faisalabad, PK",
     url: "https://devhouse.co/",
